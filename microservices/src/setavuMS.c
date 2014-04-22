@@ -11,7 +11,7 @@
 #define VALIDATE_NOT_NULL(PARAM) \
   do { \
     if (!(PARAM)) { \
-      rodsLog (LOG_ERROR, "msiSetAVU: input " ## #PARAM ## " is NULL"); \
+      rodsLog (LOG_ERROR, "msiSetAVU: input #PARAM is NULL"); \
       return SYS_INTERNAL_NULL_INPUT_ERR; \
     } \
   } while (0)
@@ -42,7 +42,7 @@ msiSetAVU(msParam_t * const itemTypeParam,
   modAVUMetadataInp_t avuOp;
   avuOp.arg0 = "set";
   avuOp.arg1 = parseMspForStr(itemTypeParam);
-  avuOp.arg2 = parseMsgForStr(itemNameParam);
+  avuOp.arg2 = parseMspForStr(itemNameParam);
   avuOp.arg3 = parseMspForStr(attrNameParam);
   avuOp.arg4 = parseMspForStr(attrValParam);
   avuOp.arg5 = parseMspForStr(attrValParam);

@@ -1,7 +1,7 @@
 #
-# modules/properties/Makefile
+# modules/setavu/Makefile
 #
-# Build the iRODS properties module
+# Build the iRODS setavu module
 #
 
 ifndef buildDir
@@ -21,9 +21,9 @@ include $(buildDir)/config/common.mk
 #
 # Directories
 #
-MSObjDir =	$(modulesDir)/properties/microservices/obj
-MSSrcDir =	$(modulesDir)/properties/microservices/src
-MSIncDir =	$(modulesDir)/properties/microservices/include
+MSObjDir =	$(modulesDir)/setavu/microservices/obj
+MSSrcDir =	$(modulesDir)/setavu/microservices/src
+MSIncDir =	$(modulesDir)/setavu/microservices/include
 
 
 
@@ -43,7 +43,7 @@ INCLUDE_FLAGS =	-I$(MSIncDir)
 # Compile and link flags
 #
 INCLUDES +=	$(INCLUDE_FLAGS) $(LIB_INCLUDES) $(SVR_INCLUDES)
-CFLAGS_OPTIONS := $(CFLAGS) $(MY_CFLAG)
+CFLAGS_OPTIONS := -DRODS_SERVER $(CFLAGS) $(MY_CFLAG)
 CFLAGS =	$(CFLAGS_OPTIONS) $(INCLUDES) $(MODULE_CFLAGS)
 
 
@@ -92,7 +92,7 @@ rules:
 
 # Clean
 clean:
-	@echo "Clean irods-setavu-mod module..."
+	@echo "Clean setavu module..."
 	@rm -f $(OBJECTS)
 
 
@@ -112,6 +112,6 @@ print_cflags:
 # Compilation targets
 #
 $(OBJECTS): $(MSObjDir)/%.o: $(MSSrcDir)/%.c $(DEPEND)
-	@echo "Compile irods-setavu-mod module `basename $@`..."
+	@echo "Compile setavu module `basename $@`..."
 	@$(CC) -c $(CFLAGS) -o $@ $<
 
