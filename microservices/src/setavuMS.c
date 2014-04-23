@@ -45,7 +45,7 @@ msiSetAVU(msParam_t * const itemTypeParam,
   avuOp.arg2 = parseMspForStr(itemNameParam);
   avuOp.arg3 = parseMspForStr(attrNameParam);
   avuOp.arg4 = parseMspForStr(attrValParam);
-  avuOp.arg5 = parseMspForStr(attrValParam);
+  avuOp.arg5 = parseMspForStr(attrUnitParam);
   avuOp.arg6 = "";
   avuOp.arg7 = "";
   avuOp.arg8 = "";
